@@ -17,16 +17,16 @@ namespace StdLib {
 
     public static fun Print() => Print('');
     @override
-    public static function Print(string str) => Print(FileDescriptor.STDOUT, str);
+    public static fun Print(string str) => Print(FileDescriptor.STDOUT, str);
     @override
-    public static function Print(FileDescriptor fd, string str) => Print((int)fd, str);
+    public static fun Print(FileDescriptor fd, string str) => Print((int)fd, str);
     @override
-    public static function Print(int fd, string str) : void {
+    public static fun Print(int fd, string str) : void {
       DotNetFunCall("FunLang.StdLib.IO.Print", [])()
     }
 
-    public static function PrintLn(string str) => Print(str + "\n");
-    public static function PrintLn(FileDescriptor fd, string str) => Print(fd, str + "\n");
-    public static function PrintLn(int fd, string str) => Print(fd, str + "\n");
+    public static fun PrintLn(string str) => Print(str + "\n");
+    public static fun PrintLn(FileDescriptor fd, string str) => Print(fd, str + "\n");
+    public static fun PrintLn(int fd, string str) => Print(fd, str + "\n");
   }
 }
