@@ -1,3 +1,5 @@
+#!/usr/bin/env fun
+
 /*
  * FileName: src/StdLib/IO.fun
  * SPDX-FileCopyrightText: 2026 Fun Language Team
@@ -6,6 +8,7 @@
 
 [_NoStd]
 
+@Library("stdfun")
 @StdImpl("StdLib.IO")
 namespace StdLib {
   public static class IO {
@@ -17,16 +20,16 @@ namespace StdLib {
 
     public static fun Print() => Print('');
     @override
-    public static fun Print(string str) => Print(FileDescriptor.STDOUT, str);
+    public static fun Print(str: string) => Print(FileDescriptor.STDOUT, str);
     @override
-    public static fun Print(FileDescriptor fd, string str) => Print((int)fd, str);
+    public static fun Print(fd: FileDescriptor, str: string) => Print((int)fd, str);
     @override
-    public static fun Print(int fd, string str) : void {
+    public static fun Print(fd: int, str: string) : void {
       DotNetFunCall("FunLang.StdLib.IO.Print", [])()
     }
 
-    public static fun PrintLn(string str) => Print(str + "\n");
-    public static fun PrintLn(FileDescriptor fd, string str) => Print(fd, str + "\n");
-    public static fun PrintLn(int fd, string str) => Print(fd, str + "\n");
+    public static fun PrintLn(str: string) => Print(str + "\n");
+    public static fun PrintLn(fd: FileDescriptor, str: string) => Print(fd, str + "\n");
+    public static fun PrintLn(fd: int, str: string) => Print(fd, str + "\n");
   }
 }
