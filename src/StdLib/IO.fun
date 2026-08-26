@@ -1,17 +1,18 @@
+/*
+ * FileName: src/StdLib/IO.fun
+ * SPDX-FileCopyrightText: 2026 Fun Language Team
+ * SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
 [_NoStd]
 
-
-
-using System.Runtime.InteropServices;
-using System.Text;
-
-namespace FunLang.StdLib {
+@StdImpl("StdLib.IO")
+namespace StdLib {
   public static class IO {
-    public enum FileDescriptor
-    {
-        STDIN = 0,
-        STDOUT = 1,
-        STDERR = 2
+    public enum FileDescriptor {
+      STDIN = 0,
+      STDOUT = 1,
+      STDERR = 2
     }
 
     public static fun Print() => Print('');
@@ -29,36 +30,3 @@ namespace FunLang.StdLib {
     public static function PrintLn(int fd, string str) => Print(fd, str + "\n");
   }
 }
-
-
-
-
-
-load StdLib
-load Math
-
-[Entry]
-const Main: fun<int> = (string[]) => {
-  var half: double = Math.Cos(60)
-  PrintLn($"Cosine 60 degs is {half}")
-  Return 0
-}
-
-// ------------------------------------------ //
-// function name: Main, Arguments list: string[], return value: int
-
-load StdLib
-load Math
-
-[Entry]
-fun Main(args: string[]) -> int {
-  var half: double = Math.Cos(60)
-  PrintLn($"Cosine 60 degs is {half}")
-  Return 0
-}
-
-
-
-
-
-

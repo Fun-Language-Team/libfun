@@ -8,7 +8,7 @@
 
 @StdImpl("StdLib.Type.String")
 namespace StdLib.Type {
-  struct String {
+  public struct String {
     public var _pointer: StdLib.Type.NInt;  // pointer       
     public var _length: StdLib.Type.UInt32; // string length
 
